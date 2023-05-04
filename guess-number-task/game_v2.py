@@ -17,13 +17,15 @@ def random_predict(number: int = 1) -> int:
     count = 0
     predict = np.random.randint(1, 101)
     
+    #ограничиваем зону поиска загаданного значения 50 значениями
     if number > predict:
       count += 1
       predict += 50
     else:
       count += 1
       predict -= 50
-
+      
+    #ограничиваем зону поиска загаданного значения 25 значениями из 50 отобраных выше в коде
     if number > predict:
       count += 1
       predict += 25
@@ -31,7 +33,23 @@ def random_predict(number: int = 1) -> int:
       count += 1
       predict -= 25
 
-
+    #ограничиваем зону поиска загаданного значения 10 значениями из 25 отобраных выше в коде
+    if number > predict:
+      count += 1
+      predict += 10
+    else:
+      count += 1
+      predict -= 10
+      
+    #ограничиваем зону поиска загаданного значения 5 значениями из 10 отобраных выше в коде  
+    if number > predict:
+      count += 1
+      predict += 5
+    else:
+      count += 1
+      predict -= 5
+      
+    #производится перебор значений из 5 отобранных выше
     while number != predict:
         count += 1
         if number > predict:
